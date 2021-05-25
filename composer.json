@@ -8,6 +8,7 @@
             "email": "diguojin@163.com"
         }
     ],
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Diguojin\\AliyunOcr\\": "src"

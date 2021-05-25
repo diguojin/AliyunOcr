@@ -1,6 +1,6 @@
 <h1 align="center"> aliyun-ocr </h1>
 
-<p align="center"> A LiveSDK of aliyun-ocr.</p>
+<p align="center"> A SDK of aliyun-ocr.</p>
 
 
 ## Installing
@@ -10,8 +10,9 @@ $ composer require diguojin/aliyun-ocr -vvv
 ```
 
 ## Usage
-
-TODO
+NOTICE!!
+This is not a Stable version.
+developing for test.
 
 ## Contributing
 
