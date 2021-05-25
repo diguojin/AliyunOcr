@@ -17,17 +17,33 @@ class Ocr
     {
         $url = "http://dm-51.data.aliyun.com/rest/160601/ocr/ocr_idcard.json";
         $method = "POST";
-        $headers = [];
-        array_push($headers, "Authorization:APPCODE " . $appCode);
-        array_push($headers, "Content-Type" . ":" . "application/json; charset=UTF-8");
         $img_data = $this->img_base64($imgUrl);
         $request = array(
             "image" => "$img_data"
         );
-        return $this->httpRequest($url, $method, $config, $headers, $request);
+        return $this->httpRequest($url, $method, $config, $this->getHeaders($appCode), $request);
     }
 
-    public function httpRequest($url, $method, $config, $headers, $request)
+    private function getHeaders($appCode)
+    {
+        $headers = [];
+        array_push($headers, "Authorization:APPCODE " . $appCode);
+        array_push($headers, "Content-Type" . ":" . "application/json; charset=UTF-8");
+        return $headers;
+    }
+
+    public function businessLicense($appCode, $imgUrl)
+    {
+        $url = 'http://dm-58.data.aliyun.com/rest/160601/ocr/ocr_business_license.json';
+        $method = "POST";
+        $img_data = $this->img_base64($imgUrl);
+        $request = array(
+            "image" => "$img_data"
+        );
+        return $this->httpRequest($url, $method, [], $this->getHeaders($appCode), $request);
+    }
+
+    private function httpRequest($url, $method, $config, $headers, $request)
     {
         if (count($config) > 0) {
             $request["configure"] = json_encode($config);
@@ -63,7 +79,7 @@ class Ocr
         }
     }
 
-    function img_base64($path)
+    private function img_base64($path)
     {
         //对path进行判断，如果是本地文件就二进制读取并base64编码，如果是url,则返回
         if (substr($path, 0, strlen("http")) === "http") {
@@ -74,7 +90,7 @@ class Ocr
                 fclose($fp);
                 $img_data = base64_encode($binary); // 转码
             } else {
-                exit("%s 图片不存在 ". $path);
+                exit("%s 图片不存在 " . $path);
             }
         }
         return $img_data;
