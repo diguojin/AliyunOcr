@@ -1,0 +1,17 @@
+{
+    "name": "diguojin\/aliyun-ocr",
+    "description": "阿里云ocr SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "diguojin",
+            "email": "diguojin@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Diguojin\\AliyunOcr\\": "src"
+        }
+    },
+    "require": {}
+}
