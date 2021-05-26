@@ -1,19 +1,23 @@
 <h1 align="center"> aliyun-ocr </h1>
-
-<p align="center"> A SDK of aliyun-ocr.</p>
+<p align="center">基于阿里云OCR服务的一个简单SDK封装</p>
+<p align="center">simple aliyun OCR SDK</p>
 
 
 ## Installing
 
 ```shell
-$ composer require diguojin/aliyun-ocr -vvv
+$ composer require diguojin/aliyun-ocr dev-main -vvv
 ```
 
 ## Usage
+```
 NOTICE!!
+注意!!
 This is not a Stable version.
+目前并不是一个稳定版本。
 developing for test.
-
+使用时请注意。
+```
 ## Contributing
 
 You can contribute in one of three ways:
